@@ -15,4 +15,12 @@ export class AddItemComponent implements OnInit {
   constructor(private itemService: ItemService) {}
 
   ngOnInit() {}
+
+  onSubmit() {
+    if (this.item.title !== "" && this.item.description !== "") {
+      this.itemService.addItem(this.item);
+      this.item.title = "";
+      this.item.description = "";
+    }
+  }
 }
