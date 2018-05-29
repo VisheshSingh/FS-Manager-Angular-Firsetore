@@ -19,11 +19,12 @@ export class ItemsComponent implements OnInit {
       this.items = item;
     });
   }
-  deleteItem(e, item) {
+  deleteItem(e, item: Item) {
+    this.clearState();
     this.itemService.deleteItem(item);
   }
 
-  editItem(e, item) {
+  editItem(e, item: Item) {
     this.editState = true;
     this.itemToEdit = item;
   }
@@ -31,5 +32,10 @@ export class ItemsComponent implements OnInit {
   clearState() {
     this.editState = false;
     this.itemToEdit = null;
+  }
+
+  updateItem(item: Item) {
+    this.itemService.updateItem(item);
+    this.clearState();
   }
 }
