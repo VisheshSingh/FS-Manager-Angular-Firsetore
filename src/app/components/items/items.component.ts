@@ -10,6 +10,8 @@ import { randomBytes } from "crypto";
 })
 export class ItemsComponent implements OnInit {
   items: Item[];
+  editState: boolean = false;
+  itemToEdit: Item;
   constructor(public itemService: ItemService) {}
 
   ngOnInit() {
@@ -19,5 +21,15 @@ export class ItemsComponent implements OnInit {
   }
   deleteItem(e, item) {
     this.itemService.deleteItem(item);
+  }
+
+  editItem(e, item) {
+    this.editState = true;
+    this.itemToEdit = item;
+  }
+
+  clearState() {
+    this.editState = false;
+    this.itemToEdit = null;
   }
 }
