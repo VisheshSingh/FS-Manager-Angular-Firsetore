@@ -1,7 +1,7 @@
 <div *ngIf="items?.length>0; else noitems">
   <ul *ngFor="let item of items" class="collection">
     <li class="collection-item">
-      <strong>{{item.title}}: </strong> {{item.description}}</li>
+      <strong>{{item.id}}: </strong> {{item.description}}</li>
   </ul>
 </div>
 <ng-template #noitems>
